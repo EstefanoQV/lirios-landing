@@ -178,6 +178,10 @@ nav{
   bottom:80px;left:-60px;
 }
 
+
+.bc.photo2{
+  background-image:url('../img/galeria/ninos-parque.webp');
+}
 /* Background layer — visible WHEN image is set */
 /* To use: add class .has-image to <section class="hero"> and set --hero-img URL */
 .hero.has-image .hero-bg-fallback{
@@ -402,7 +406,7 @@ nav{
   border-radius:12px;overflow:hidden;
   aspect-ratio:4/5;position:relative;
   /* PLACEHOLDER — community photo */
-  background-image:url('https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800&q=85&auto=format&fit=crop');
+  background-image:url('../img/beneficiarios/silla-amarilla.webp');
   background-size:cover;background-position:center;
   box-shadow:0 24px 60px rgba(22,32,46,.12);
 }
