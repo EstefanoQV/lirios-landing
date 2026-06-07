@@ -42,7 +42,12 @@
 }
 </script>
 <!-- Preload hero image -->
- <link rel="preload" as="image" href="assets/img/hero/patio-colonial.webp" type="image/webp">
+<link
+  rel="preload"
+  as="image"
+  href="assets/img/hero/patio-colonial.webp"
+  type="image/webp"
+  fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;0,6..72,400;1,6..72,200;1,6..72,300;1,6..72,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
@@ -384,7 +389,8 @@ nav{
 .marquee-track span{
   font-family:'DM Mono',monospace;font-size:.6rem;
   letter-spacing:.16em;text-transform:uppercase;
-  color:rgba(255,255,255,.28);
+  color:var(--gold-lt);
+  opacity:1;
 }
 .marquee-track .ma{color:var(--gold-lt);opacity:.75}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
@@ -1212,7 +1218,7 @@ footer{background:var(--ink);padding:3.5rem max(5vw,1.8rem) 2.5rem}
 <!-- ══ NAV ══ -->
 <nav>
   <a href="#inicio" class="nav-brand" aria-label="Ir al inicio">
-  <img src="assets/img/logo/LIRIOS-horizontal.svg" alt="LIRIOS" class="nav-logo">
+  <img src="assets/img/logo/LIRIOS-horizontal.svg" alt="LIRIOS" class="nav-logo" width="220" height="73">
 </a>
   <ul class="nav-links">
     <li><a href="#proposito">Propósito</a></li>
@@ -1712,11 +1718,7 @@ footer{background:var(--ink);padding:3.5rem max(5vw,1.8rem) 2.5rem}
   <div class="foot-top">
     <div>
       <a href="#inicio" class="foot-brand-link" aria-label="Volver al inicio">
-      <img
-  src="assets/img/logo/LIRIOS-horizontal-negativo.svg"
-  alt="LIRIOS"
-  class="foot-logo"
-></a>
+      <img src="assets/img/logo/LIRIOS-horizontal-negativo.svg" alt="LIRIOS" class="foot-logo" width="220" height="73"></a>
       <div class="foot-brand-sub">
         Liderazgo Infantil y Responsabilidad<br>
         para la Inclusión y Oportunidad Social<br>

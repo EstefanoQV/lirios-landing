@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://liriosylazos.netlify.app/sitemap.xml
