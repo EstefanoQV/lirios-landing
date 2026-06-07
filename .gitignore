@@ -1,0 +1,19 @@
+# Sistema operativo
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Editores
+.windsurf/
+.vscode/settings.json
+*.swp
+*.swo
+
+# Node (solo para servidor local, no va al repo)
+node_modules/
+npm-debug.log
+
+# Variables de entorno (seguridad)
+.env
+.env.local
+.env.production
