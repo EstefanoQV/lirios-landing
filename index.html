@@ -4,7 +4,44 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>L.I.R.I.O.S. — Arte que Conecta y Transforma</title>
-<meta name="description" content="Liderazgo Infantil y Responsabilidad para la Inclusión y Oportunidad Social. Arte solidario para familias vulnerables de Cajamarca, Perú.">
+<meta name="description" content="Liderazgo Infantil y Responsabilidad para la Inclusión y Oportunidad Social. Arte solidario para familias vulnerables de Cajamarca, Perú. Donaciones de obras, voluntariado y apoyo directo.">
+<meta name="keywords" content="LIRIOS, arte solidario, Cajamarca, Perú, donaciones, voluntariado, inclusión social, familias vulnerables, arte con propósito">
+<meta name="author" content="L.I.R.I.O.S. — Proyecto solidario">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://lirios-landing.netlify.app">
+<!-- Open Graph -->
+<meta property="og:title" content="L.I.R.I.O.S. — Arte que Conecta y Transforma">
+<meta property="og:description" content="Arte solidario para familias vulnerables de Cajamarca, Perú. Donamos obras, recaudamos fondos con total transparencia.">
+<meta property="og:image" content="https://lirios-landing.netlify.app/assets/img/hero/patio-colonial.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://lirios-landing.netlify.app">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_PE">
+<meta property="og:site_name" content="L.I.R.I.O.S.">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="L.I.R.I.O.S. — Arte que Conecta y Transforma">
+<meta name="twitter:description" content="Arte solidario para familias vulnerables de Cajamarca, Perú.">
+<meta name="twitter:image" content="https://lirios-landing.netlify.app/assets/img/hero/patio-colonial.jpg">
+<!-- Schema.org JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NGO",
+  "name": "L.I.R.I.O.S.",
+  "alternateName": "Liderazgo Infantil y Responsabilidad para la Inclusión y Oportunidad Social",
+  "description": "Proyecto solidario que convierte el arte en apoyo real para familias vulnerables de Cajamarca, Perú.",
+  "url": "https://lirios-landing.netlify.app",
+  "sameAs": ["https://www.instagram.com/liriosylazos.proyecto/"],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Cajamarca",
+    "addressCountry": "PE"
+  }
+}
+</script>
+<!-- Preload hero image -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;0,6..72,400;1,6..72,200;1,6..72,300;1,6..72,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
@@ -61,54 +98,95 @@ button,input,textarea{font-family:inherit}
    NAV — warm, pill-style floating
 ══════════════════════════════════════════════ */
 nav{
-  position:fixed;top:14px;left:50%;transform:translateX(-50%);
+  position:fixed;
+  top:14px;
+  left:50%;
+  transform:translateX(-50%);
   z-index:200;
   width:min(1060px,calc(100% - 2rem));
   background:rgba(246,243,237,.9);
-  backdrop-filter:blur(24px) saturate(1.3);-webkit-backdrop-filter:blur(24px) saturate(1.3);
+  backdrop-filter:blur(24px) saturate(1.3);
+  -webkit-backdrop-filter:blur(24px) saturate(1.3);
   border:1px solid rgba(200,150,14,.2);
   border-radius:999px;
   padding:.5rem .6rem .5rem 1.4rem;
-  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  display:grid;
+  grid-template-columns:max-content
+    1fr
+    max-content;
+  align-items:center;
   box-shadow:0 2px 0 rgba(200,150,14,.08) inset, 0 8px 32px rgba(22,32,46,.06), 0 1px 0 rgba(255,255,255,.7) inset;
 }
+
 .nav-brand{
-  display:flex;align-items:center;gap:.55rem;
-  font-family:'Newsreader',serif;font-size:.95rem;font-weight:300;
-  color:var(--ink);letter-spacing:-.01em;white-space:nowrap;
+  max-width:220px;
 }
-.nav-dot{
-  width:22px;height:22px;border-radius:50%;
-  background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 100%);
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+
+.nav-logo{
+  display:block;
+  height:38px;
+  width:auto;
 }
-.nav-dot span{
-  width:7px;height:7px;border-radius:50%;
-  background:var(--gold-lt);
-  animation:navblink 2.8s ease-in-out infinite;
+
+.nav-links{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:1.15rem;
 }
-@keyframes navblink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.8)}}
-.nav-links{display:flex;gap:.2rem;list-style:none}
+
+.nav-links li{
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+
 .nav-links a{
-  display:block;padding:.36rem .82rem;border-radius:999px;
-  font-size:.75rem;font-weight:500;color:var(--muted);
-  transition:color .2s,background .2s;letter-spacing:.005em;
+  display:block;
+  padding:.36rem .82rem;
+  border-radius:999px;
+  font-size:.75rem;
+  font-weight:500;
+  color:var(--muted);
+  transition:color .2s,background .2s;
+  letter-spacing:.005em;
 }
-.nav-links a:hover{color:var(--ink);background:rgba(22,32,46,.05)}
+
+.nav-links a:hover{
+  color:var(--ink);
+  background:rgba(22,32,46,.05);
+}
+
 .nav-cta{
-  background:var(--navy);color:#fff;
-  border:none;border-radius:999px;
+  justify-self:end;
+  background:var(--navy);
+  color:#fff;
+  border:none;
+  border-radius:999px;
   padding:.48rem 1.2rem;
-  font-size:.75rem;font-weight:600;
-  display:inline-flex;align-items:center;gap:.38rem;
-  transition:background .2s,box-shadow .2s,transform .15s;
+  font-size:.75rem;
+  font-weight:600;
+  display:inline-flex;
+  align-items:center;
+  gap:.38rem;
   box-shadow:0 2px 12px rgba(28,59,114,.28);
-  white-space:nowrap;cursor:pointer;
+  white-space:nowrap;
+  cursor:pointer;
 }
-.nav-cta:hover{background:var(--navy2);box-shadow:0 4px 20px rgba(28,59,114,.38)}
-.nav-cta:active{transform:scale(.97)}
-.nav-cta svg{transition:transform .2s var(--ease)}
-.nav-cta:hover svg{transform:translate(2px,-2px)}
+
+@media(max-width:900px){
+  nav{
+    grid-template-columns:auto auto;
+  }
+
+  .nav-links{
+    display:none;
+  }
+
+  .nav-logo{
+    height:32px;
+  }
+}
 
 /* ══════════════════════════════════════════════
    HERO — works with OR without image
@@ -150,7 +228,7 @@ nav{
 /* Background layer — visible WHEN image is set */
 /* To use: add class .has-image to <section class="hero"> and set --hero-img URL */
 .hero.has-image .hero-bg-fallback{
-  background-image:var(--hero-img, url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1920&q=85&auto=format&fit=crop'));
+  background-image:url('assets/img/hero/patio-colonial.webp');
   background-size:cover;background-position:center 28%;
   filter:saturate(.78) brightness(.5);
 }
@@ -455,7 +533,7 @@ nav{
   background-image:url('https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=900&q=80&auto=format&fit=crop');
 }
 .bc.photo2{
-  background-image:url('assets/img/galeria/ninos-parque.jpg');
+  background-image:url('assets/img/galeria/ninos-parque.webp');
   background-size:cover;background-position:center top;
   padding:0;
 }
@@ -690,7 +768,6 @@ nav{
 .tc:hover{box-shadow:0 8px 32px rgba(22,32,46,.1);transform:translateY(-2px)}
 .tc-quote-mark{
   font-family:'Newsreader',serif;font-size:3rem;line-height:0;
-  vertical-align:-.4rem;color:var(--gold-lt);
   font-weight:200;margin-bottom:.8rem;display:block;
 }
 .tc:nth-child(2) .tc-quote-mark{color:rgba(200,150,14,.5)}
@@ -928,6 +1005,18 @@ footer{background:var(--ink);padding:3.5rem max(5vw,1.8rem) 2.5rem}
   padding-bottom:2.5rem;
   border-bottom:1px solid rgba(255,255,255,.07);
 }
+.foot-logo{
+  display:block;
+  height:58px;
+  width:auto;
+}
+.foot-brand-link{
+  display:inline-block;
+}
+
+.foot-brand-link:hover{
+  opacity:.9;
+}
 .foot-brand-name{
   font-family:'Newsreader',serif;font-size:1.05rem;font-weight:300;
   color:rgba(255,255,255,.75);letter-spacing:-.01em;
@@ -935,7 +1024,7 @@ footer{background:var(--ink);padding:3.5rem max(5vw,1.8rem) 2.5rem}
 .foot-brand-sub{
   font-family:'DM Mono',monospace;font-size:.55rem;
   letter-spacing:.1em;text-transform:uppercase;
-  color:rgba(255,255,255,.2);margin-top:.35rem;line-height:1.9;
+  color:rgba(255,255,255,.2);margin-top:.10rem;line-height:2.2;
 }
 .foot-links-col .foot-col-title{
   font-family:'DM Mono',monospace;font-size:.57rem;
@@ -951,7 +1040,7 @@ footer{background:var(--ink);padding:3.5rem max(5vw,1.8rem) 2.5rem}
 .foot-ig{
   display:inline-flex;align-items:center;gap:.45rem;
   border:1px solid rgba(200,150,14,.25);border-radius:6px;
-  padding:.42rem .85rem;margin-top:.3rem;
+  padding:.42rem .85rem;margin-top:.7rem;
   font-size:.7rem;color:rgba(255,255,255,.35);
   transition:all .2s;
 }
@@ -1042,7 +1131,6 @@ footer{background:var(--ink);padding:3.5rem max(5vw,1.8rem) 2.5rem}
   color:rgba(255,255,255,.38);margin-top:.35rem;display:block;
 }
 
-
 /* ══════════════════════════════════════════════
    HERO FLOATING PARTICLES (fallback mode)
 ══════════════════════════════════════════════ */
@@ -1122,10 +1210,9 @@ footer{background:var(--ink);padding:3.5rem max(5vw,1.8rem) 2.5rem}
 
 <!-- ══ NAV ══ -->
 <nav>
-  <div class="nav-brand">
-    <div class="nav-dot"><span></span></div>
-    L.I.R.I.O.S.
-  </div>
+  <a href="#inicio" class="nav-brand" aria-label="Ir al inicio">
+  <img src="assets/img/logo/LIRIOS-horizontal.svg" alt="LIRIOS" class="nav-logo">
+</a>
   <ul class="nav-links">
     <li><a href="#proposito">Propósito</a></li>
     <li><a href="#impacto">Impacto</a></li>
@@ -1143,7 +1230,7 @@ footer{background:var(--ink);padding:3.5rem max(5vw,1.8rem) 2.5rem}
      • Con imagen:  <section class="hero has-image"> y opcionalmente
                     style="--hero-img:url('tu-foto.jpg')" para cambiar la foto
 -->
-<section class="hero has-image" id="inicio">
+<section class="hero has-image" id="inicio" style="--hero-img:url('assets/img/hero/patio-colonial.jpg')">
   <!-- Fondo: fallback cálido sin imagen / foto cuando .has-image -->
   <div class="hero-bg-fallback" aria-hidden="true"></div>
   <div class="hero-overlay" aria-hidden="true"></div>
@@ -1230,7 +1317,7 @@ footer{background:var(--ink);padding:3.5rem max(5vw,1.8rem) 2.5rem}
     </div>
     <div class="problema-media rv d2">
       <!-- PLACEHOLDER: foto comunidad Cajamarca -->
-      <div class="problema-photo" role="img" aria-label="Joven en silla de ruedas en el centro LIRIOS, Cajamarca" style="background-image:url('assets/img/beneficiarios/silla-amarilla.jpg')"></div>
+      <div class="problema-photo" role="img" aria-label="Joven en silla de ruedas en el centro LIRIOS, Cajamarca" style="background-image:url('assets/img/beneficiarios/silla-amarilla.webp')"></div>
       <div class="problema-float">
         <div class="pf-val">Arte</div>
         <div class="pf-lbl">Como herramienta de transformación social</div>
@@ -1274,7 +1361,7 @@ footer{background:var(--ink);padding:3.5rem max(5vw,1.8rem) 2.5rem}
       <p>Cada obra recibida y cada fondo recaudado son compartidos con claridad a través de nuestras redes. La confianza se demuestra con hechos.</p>
     </div>
     <!-- community photo — grid-area: community -->
-    <div class="bc photo2 rv d3" role="img" aria-label="Niños y jóvenes en el patio del centro de atención LIRIOS" style="background-image:url('assets/img/galeria/ninos-parque.jpg')">
+    <div class="bc photo2 rv d3" role="img" aria-label="Niños y jóvenes en el patio del centro de atención LIRIOS" style="background-image:url('assets/img/galeria/ninos-parque.webp')">
       <div class="overlay">
         <h3>Comunidad</h3>
         <p>Artistas y voluntarios unidos</p>
@@ -1422,35 +1509,50 @@ footer{background:var(--ink);padding:3.5rem max(5vw,1.8rem) 2.5rem}
   <div class="gal-stage">
     <div class="gal-viewport" id="galViewport">
       <div class="gal-item active" data-idx="0">
+        <picture>
+        <source srcset="assets/img/hero/patio-colonial.webp" type="image/webp">
         <img src="assets/img/hero/patio-colonial.jpg" alt="Vista del patio colonial del centro de atención LIRIOS" loading="lazy">
+      </picture>
         <div class="gal-caption">
           <p>El hogar donde el arte llega a transformar vidas</p>
           <span>L.I.R.I.O.S. · Cajamarca</span>
         </div>
       </div>
       <div class="gal-item" data-idx="1">
+        <picture>
+        <source srcset="assets/img/galeria/ninos-parque.webp" type="image/webp">
         <img src="assets/img/galeria/ninos-parque.jpg" alt="Niños y jóvenes en el patio con juegos del centro LIRIOS" loading="lazy">
+      </picture>
         <div class="gal-caption">
           <p>El patio del centro — espacio de encuentro y juego</p>
           <span>Cajamarca · Perú</span>
         </div>
       </div>
       <div class="gal-item" data-idx="2">
-        <img src="assets/img/galeria/nino-pasto.jpg" alt="Joven leyendo en el pasto del centro LIRIOS" loading="lazy">
+        <picture>
+  <source srcset="assets/img/galeria/nino-pasto.webp" type="image/webp">
+  <img src="assets/img/galeria/nino-pasto.jpg" alt="Joven leyendo en el pasto del centro LIRIOS" loading="lazy">
+</picture>
         <div class="gal-caption">
           <p>Un momento de calma en el centro de atención</p>
-          <span>Cajamarca · 2025</span>
+          <span>Cajamarca · 2026</span>
         </div>
       </div>
       <div class="gal-item" data-idx="3">
-        <img src="assets/img/beneficiarios/silla-amarilla.jpg" alt="Joven en silla de ruedas amarilla en el corredor del centro" loading="lazy">
+        <picture>
+          <source srcset="assets/img/beneficiarios/silla-amarilla.webp" type="image/webp">
+          <img src="assets/img/beneficiarios/silla-amarilla.jpg" alt="Joven en silla de ruedas amarilla en el corredor del centro" loading="lazy">
+        </picture>
         <div class="gal-caption">
           <p>Presencia y acompañamiento, cada día</p>
-          <span>L.I.R.I.O.S. · 2025</span>
+          <span>L.I.R.I.O.S. · 2026</span>
         </div>
       </div>
       <div class="gal-item" data-idx="4">
+        <picture>
+        <source srcset="assets/img/galeria/corredor.webp" type="image/webp">
         <img src="assets/img/galeria/corredor.jpg" alt="Corredor del centro con jóvenes en sillas de ruedas y cuidadores" loading="lazy">
+      </picture>
         <div class="gal-caption">
           <p>El equipo de cuidadores junto a los beneficiarios</p>
           <span>L.I.R.I.O.S. · Centro</span>
@@ -1608,7 +1710,12 @@ footer{background:var(--ink);padding:3.5rem max(5vw,1.8rem) 2.5rem}
 <footer>
   <div class="foot-top">
     <div>
-      <div class="foot-brand-name">L.I.R.I.O.S.</div>
+      <a href="#inicio" class="foot-brand-link" aria-label="Volver al inicio">
+      <img
+  src="assets/img/logo/LIRIOS-horizontal-negativo.svg"
+  alt="LIRIOS"
+  class="foot-logo"
+></a>
       <div class="foot-brand-sub">
         Liderazgo Infantil y Responsabilidad<br>
         para la Inclusión y Oportunidad Social<br>
@@ -1639,7 +1746,7 @@ footer{background:var(--ink);padding:3.5rem max(5vw,1.8rem) 2.5rem}
     </div>
   </div>
   <div class="foot-bottom">
-    <span>© 2025 L.I.R.I.O.S. — Proyecto solidario sin fines de lucro · Cajamarca, Perú</span>
+    <span>© 2026 L.I.R.I.O.S. — Proyecto solidario sin fines de lucro · Cajamarca, Perú</span>
     <span>Arte con propósito · Crear es cuidar</span>
   </div>
 </footer>
