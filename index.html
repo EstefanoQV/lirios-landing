@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-PE">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -443,12 +443,9 @@ nav{
 .bc.photo  { grid-area: photo }
 .bc.bc-1   { grid-area: bc1; display:flex;flex-direction:column;justify-content:center }
 .bc.bc-2   { grid-area: bc2; display:flex;flex-direction:column;justify-content:center }
-.bc.dark   { grid-area: dark }
+.bc.bc-3   { grid-area: dark; display:flex; flex-direction:column; justify-content:center }
 .bc.photo2 { grid-area: community }
-.bc.dark{background:var(--navy2);display:flex;flex-direction:row;align-items:center;gap:3rem;padding:1.6rem 2.4rem}
-.bc.dark .bc-n{margin-bottom:0;flex-shrink:0}
-.bc.dark .bc-text{flex:1}
-.bc.dark:hover{box-shadow:0 8px 32px rgba(14,33,69,.3)}
+
 .bc.gold-tint{background:rgba(200,150,14,.06);border:1px solid rgba(200,150,14,.15)}
 /* image bento card */
 .bc.photo{
@@ -458,7 +455,9 @@ nav{
   background-image:url('https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=900&q=80&auto=format&fit=crop');
 }
 .bc.photo2{
-  background-image:url('https://images.unsplash.com/photo-1593113598332-cd288d649433?w=700&q=80&auto=format&fit=crop');
+  background-image:url('assets/img/galeria/ninos-parque.jpg');
+  background-size:cover;background-position:center top;
+  padding:0;
 }
 .bc.photo .overlay,.bc.photo2 .overlay{
   position:absolute;inset:0;
@@ -477,14 +476,14 @@ nav{
   color:var(--navy);opacity:.14;letter-spacing:-.05em;line-height:1;
   margin-bottom:.5rem;
 }
-.bc.dark .bc-n{color:var(--blue-lt);opacity:.22}
+
 .bc h3{
   font-size:.9rem;font-weight:600;
   color:var(--ink);margin-bottom:.5rem;letter-spacing:-.01em;
 }
-.bc.dark h3{color:rgba(255,255,255,.88)}
+
 .bc p{font-size:.8rem;color:var(--muted);line-height:1.72;font-weight:300}
-.bc.dark p{color:rgba(255,255,255,.42)}
+
 
 /* ══════════════════════════════════════════════
    IMPACTO — dark warm
@@ -994,49 +993,47 @@ footer{background:var(--ink);padding:3.5rem max(5vw,1.8rem) 2.5rem}
 }
 .gal-dot.active{width:20px;border-radius:3px;background:var(--navy)}
 
-/* Track — slides */
-.gal-track-wrap{
+/* Carrusel central — viewport + fade */
+.gal-stage{
+  position:relative;
+  padding:0 max(5vw,1.8rem);
+}
+.gal-viewport{
+  position:relative;
+  width:100%;
+  max-width:860px;
+  margin:0 auto;
+  aspect-ratio:16/10;
+  border-radius:16px;
   overflow:hidden;
-  cursor:grab;
+  box-shadow:0 16px 56px rgba(22,32,46,.16);
+}
+.gal-item{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transition:opacity .7s var(--ease);
+  pointer-events:none;
+}
+.gal-item.active{
+  opacity:1;
+  pointer-events:auto;
+  z-index:2;
+}
+.gal-item img{
+  width:100%;height:100%;
+  object-fit:cover;display:block;
   user-select:none;
 }
-.gal-track-wrap:active{cursor:grabbing}
-.gal-track{
-  display:flex;gap:16px;
-  padding:0 max(5vw,1.8rem);
-  transition:transform .6s var(--ease);
-  will-change:transform;
-}
-.gal-slide{
-  flex:0 0 auto;
-  width:clamp(280px,38vw,480px);
-  border-radius:14px;overflow:hidden;
-  position:relative;
-  box-shadow:0 4px 24px rgba(22,32,46,.1);
-  transition:transform .4s var(--ease),box-shadow .4s var(--ease);
-}
-.gal-slide:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(22,32,46,.16)}
-.gal-slide img{
-  width:100%;height:100%;object-fit:cover;display:block;
-  pointer-events:none;
-  transition:transform 7s var(--ease);
-}
-.gal-slide:hover img{transform:scale(1.04)}
-.gal-slide.tall{aspect-ratio:3/4}
-.gal-slide.wide{aspect-ratio:4/3}
-.gal-slide.sq{aspect-ratio:1/1}
-/* caption overlay */
 .gal-caption{
   position:absolute;inset:0;
-  background:linear-gradient(to top,rgba(14,33,69,.78) 0%,rgba(14,33,69,.08) 50%,transparent 100%);
+  background:linear-gradient(to top,rgba(14,33,69,.82) 0%,rgba(14,33,69,.08) 55%,transparent 100%);
   display:flex;flex-direction:column;justify-content:flex-end;
-  padding:1.6rem;opacity:0;
-  transition:opacity .3s;
+  padding:2rem 2.2rem;
 }
-.gal-slide:hover .gal-caption{opacity:1}
 .gal-caption p{
   font-family:'Newsreader',serif;font-style:italic;
-  font-size:.92rem;line-height:1.5;color:rgba(255,255,255,.88);
+  font-size:1rem;line-height:1.5;color:rgba(255,255,255,.9);
   font-weight:300;
 }
 .gal-caption span{
@@ -1044,6 +1041,7 @@ footer{background:var(--ink);padding:3.5rem max(5vw,1.8rem) 2.5rem}
   letter-spacing:.1em;text-transform:uppercase;
   color:rgba(255,255,255,.38);margin-top:.35rem;display:block;
 }
+
 
 /* ══════════════════════════════════════════════
    HERO FLOATING PARTICLES (fallback mode)
@@ -1076,6 +1074,8 @@ footer{background:var(--ink);padding:3.5rem max(5vw,1.8rem) 2.5rem}
 .rv{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .rv.in{opacity:1;transform:none}
 .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+.tipo-err{font-size:.67rem;color:#f87171;display:none;margin-bottom:1rem;font-family:'DM Mono',monospace;letter-spacing:.06em}
+.tipo-err.show{display:block}
 
 /* ══════════════════════════════════════════════
    RESPONSIVE
@@ -1085,8 +1085,11 @@ footer{background:var(--ink);padding:3.5rem max(5vw,1.8rem) 2.5rem}
   .problema-inner,.prop-head,.conv-head,.como-inner,.trans-inner,.faq-head{grid-template-columns:1fr}
   .problema-inner{gap:3.5rem}
   .problema-float{left:auto;right:1rem;bottom:1rem}
-  .bento{grid-template-columns:1fr 1fr;grid-template-rows:auto;grid-template-areas:none}
-  .bc.photo,.bc.bc-1,.bc.bc-2,.bc.dark,.bc.photo2{grid-area:auto;grid-column:auto;grid-row:auto}
+  .bento{grid-template-columns:1fr 1fr;grid-template-rows:auto;grid-template-areas:none;gap:8px}
+  .bc.photo,.bc.bc-1,.bc.bc-2,.bc.bc-3,.bc.photo2{grid-area:auto;grid-column:auto;grid-row:auto}
+  .bc.photo{grid-column:1 / -1;aspect-ratio:16/9;min-height:unset}
+  .bc.photo2{grid-column:1 / -1;aspect-ratio:16/9;min-height:unset}
+  .bc.bc-1,.bc.bc-2,.bc.bc-3{min-height:160px;padding:1.6rem 1.4rem}
   .impacto-inner{grid-template-columns:1fr;gap:3.5rem}
   .i-grid{grid-template-columns:1fr 1fr}
   .conv-cards{grid-template-columns:1fr}
@@ -1097,16 +1100,20 @@ footer{background:var(--ink);padding:3.5rem max(5vw,1.8rem) 2.5rem}
   .f-row{grid-template-columns:1fr}
   .foot-top{grid-template-columns:1fr;gap:2rem}
   .foot-bottom{flex-direction:column;gap:.35rem}
-  .hero-stats{grid-template-columns:1fr}
-  .hstat{border-right:none;border-bottom:1px solid var(--line);padding:1rem max(5vw,1.8rem)}
-  .hstat:last-child{border-bottom:none}
-  .hero.has-image .hstat{border-bottom-color:rgba(255,255,255,.07)}
+  .hero-stats{display:none}
+  .gal-viewport{aspect-ratio:4/3;border-radius:12px}
 }
 @media(max-width:600px){
   .bento{grid-template-columns:1fr}
+  .bc.photo,.bc.photo2{grid-column:auto;aspect-ratio:4/3}
+  .bc.bc-1,.bc.bc-2,.bc.bc-3{min-height:140px}
   .hero h1{font-size:2.8rem}
   .section{padding:5rem max(5vw,1.8rem)}
   .problema-inner,.prop-head,.bento,.conv-head,.conv-cards,.como-inner,.test-inner,.trans-inner,.faq-inner,.form-outer,.impacto-inner{padding-top:5rem;padding-bottom:5rem}
+  .gal-stage{padding:0 1rem}
+  .gal-viewport{aspect-ratio:3/4;border-radius:10px}
+  .gal-caption{padding:1.4rem 1.2rem}
+  .galeria-head{flex-direction:column;align-items:flex-start;gap:1.2rem}
 }
 </style>
 </head>
@@ -1223,7 +1230,7 @@ footer{background:var(--ink);padding:3.5rem max(5vw,1.8rem) 2.5rem}
     </div>
     <div class="problema-media rv d2">
       <!-- PLACEHOLDER: foto comunidad Cajamarca -->
-      <div class="problema-photo" role="img" aria-label="Niños de comunidad rural de Cajamarca"></div>
+      <div class="problema-photo" role="img" aria-label="Joven en silla de ruedas en el centro LIRIOS, Cajamarca" style="background-image:url('assets/img/beneficiarios/silla-amarilla.jpg')"></div>
       <div class="problema-float">
         <div class="pf-val">Arte</div>
         <div class="pf-lbl">Como herramienta de transformación social</div>
@@ -1261,15 +1268,13 @@ footer{background:var(--ink);padding:3.5rem max(5vw,1.8rem) 2.5rem}
       <h3>Impacto real</h3>
       <p>Los fondos se traducen en alimentos, abrigo, acompañamiento y ayuda humana concreta para familias en Cajamarca.</p>
     </div>
-    <div class="bc dark rv d2">
-      <div class="bc-n">03</div>
-      <div class="bc-text">
-        <h3>Transparencia total</h3>
-        <p>Cada obra recibida y cada fondo recaudado son compartidos con claridad a través de nuestras redes. La confianza se demuestra con hechos.</p>
-      </div>
+    <div class="bc bc-3 rv d2">
+      <div class="bc-n" aria-hidden="true">03</div>
+      <h3>Transparencia total</h3>
+      <p>Cada obra recibida y cada fondo recaudado son compartidos con claridad a través de nuestras redes. La confianza se demuestra con hechos.</p>
     </div>
     <!-- community photo — grid-area: community -->
-    <div class="bc photo2 rv d3" role="img" aria-label="Voluntarios en comunidad">
+    <div class="bc photo2 rv d3" role="img" aria-label="Niños y jóvenes en el patio del centro de atención LIRIOS" style="background-image:url('assets/img/galeria/ninos-parque.jpg')">
       <div class="overlay">
         <h3>Comunidad</h3>
         <p>Artistas y voluntarios unidos</p>
@@ -1324,7 +1329,7 @@ footer{background:var(--ink);padding:3.5rem max(5vw,1.8rem) 2.5rem}
   <div class="conv-cards">
     <div class="conv-card rv d1">
       <div class="conv-card-img">
-        <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&q=80&auto=format&fit=crop" alt="Artista pintando" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&q=80&auto=format&fit=crop" alt="Artista pintando una obra solidaria" loading="lazy">
       </div>
       <div class="conv-body">
         <span class="conv-tag ct-navy">Artistas</span>
@@ -1397,41 +1402,12 @@ footer{background:var(--ink);padding:3.5rem max(5vw,1.8rem) 2.5rem}
   </div>
 </section>
 
-<!-- ══ TESTIMONIOS ══ -->
-<section class="testimonios">
-  <div class="test-inner">
-    <div class="test-head rv">
-      <div>
-        <div class="eyebrow">Voces del proyecto</div>
-        <h2>Lo que dicen<br>quienes participan</h2>
-      </div>
-    </div>
-    <div class="test-grid">
-      <div class="tc rv d1">
-        <span class="tc-quote-mark">"</span>
-        <blockquote>Donar una obra para L.I.R.I.O.S. fue una de las experiencias más significativas de mi carrera. Saber que mi trabajo ayuda a alguien directamente cambia todo.</blockquote>
-        <p class="tc-name">Artista — Trujillo</p>
-      </div>
-      <div class="tc rv d2">
-        <span class="tc-quote-mark">"</span>
-        <blockquote>Fui como voluntaria y regresé con el corazón lleno. Las personas de Cajamarca necesitan más que recursos: necesitan presencia. Este proyecto lo entiende.</blockquote>
-        <p class="tc-name">Voluntaria — Cajamarca</p>
-      </div>
-      <div class="tc rv d3">
-        <span class="tc-quote-mark">"</span>
-        <blockquote>La transparencia del proyecto me generó confianza desde el primer día. Cada sol que aporté fue reportado con fotos y contexto real. Eso vale mucho.</blockquote>
-        <p class="tc-name">Donante — Lima</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ══ GALERÍA ══ -->
 <section class="galeria" id="galeria">
   <div class="galeria-head rv">
     <div>
       <div class="eyebrow">Galería</div>
-      <h2>Arte que<br>ya está cambiando vidas</h2>
+      <h2>Imágenes del<br>proyecto en acción</h2>
     </div>
     <div class="galeria-controls">
       <div class="gal-dots" id="galDots"></div>
@@ -1443,55 +1419,41 @@ footer{background:var(--ink);padding:3.5rem max(5vw,1.8rem) 2.5rem}
       </button>
     </div>
   </div>
-  <div class="gal-track-wrap" id="galWrap">
-    <div class="gal-track" id="galTrack">
-      <div class="gal-slide tall">
-        <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&q=80&auto=format&fit=crop" alt="Artista pintando" loading="lazy">
+  <div class="gal-stage">
+    <div class="gal-viewport" id="galViewport">
+      <div class="gal-item active" data-idx="0">
+        <img src="assets/img/hero/patio-colonial.jpg" alt="Vista del patio colonial del centro de atención LIRIOS" loading="lazy">
         <div class="gal-caption">
-          <p>Arte donado para la causa solidaria</p>
-          <span>Cajamarca · 2025</span>
+          <p>El hogar donde el arte llega a transformar vidas</p>
+          <span>L.I.R.I.O.S. · Cajamarca</span>
         </div>
       </div>
-      <div class="gal-slide wide">
-        <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=700&q=80&auto=format&fit=crop" alt="Comunidad" loading="lazy">
+      <div class="gal-item" data-idx="1">
+        <img src="assets/img/galeria/ninos-parque.jpg" alt="Niños y jóvenes en el patio con juegos del centro LIRIOS" loading="lazy">
         <div class="gal-caption">
-          <p>Comunidades beneficiadas por el proyecto</p>
+          <p>El patio del centro — espacio de encuentro y juego</p>
           <span>Cajamarca · Perú</span>
         </div>
       </div>
-      <div class="gal-slide sq">
-        <img src="https://images.unsplash.com/photo-1578301978018-3005759f48f7?w=600&q=80&auto=format&fit=crop" alt="Obra de arte" loading="lazy">
+      <div class="gal-item" data-idx="2">
+        <img src="assets/img/galeria/nino-pasto.jpg" alt="Joven leyendo en el pasto del centro LIRIOS" loading="lazy">
         <div class="gal-caption">
-          <p>Obra donada — subasta solidaria</p>
-          <span>Lirios y Lazos · 2025</span>
+          <p>Un momento de calma en el centro de atención</p>
+          <span>Cajamarca · 2025</span>
         </div>
       </div>
-      <div class="gal-slide tall">
-        <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&q=80&auto=format&fit=crop" alt="Voluntarios" loading="lazy">
+      <div class="gal-item" data-idx="3">
+        <img src="assets/img/beneficiarios/silla-amarilla.jpg" alt="Joven en silla de ruedas amarilla en el corredor del centro" loading="lazy">
         <div class="gal-caption">
-          <p>Voluntarios en acción en Cajamarca</p>
-          <span>L.I.R.I.O.S. · Equipo</span>
+          <p>Presencia y acompañamiento, cada día</p>
+          <span>L.I.R.I.O.S. · 2025</span>
         </div>
       </div>
-      <div class="gal-slide wide">
-        <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=700&q=80&auto=format&fit=crop" alt="Ayuda comunidad" loading="lazy">
+      <div class="gal-item" data-idx="4">
+        <img src="assets/img/galeria/corredor.jpg" alt="Corredor del centro con jóvenes en sillas de ruedas y cuidadores" loading="lazy">
         <div class="gal-caption">
-          <p>Entrega de ayuda a familias vulnerables</p>
-          <span>Impacto directo · Cajamarca</span>
-        </div>
-      </div>
-      <div class="gal-slide sq">
-        <img src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=600&q=80&auto=format&fit=crop" alt="Equipo" loading="lazy">
-        <div class="gal-caption">
-          <p>Equipo L.I.R.I.O.S. coordinando acciones</p>
-          <span>Detrás de cámara</span>
-        </div>
-      </div>
-      <div class="gal-slide wide">
-        <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=700&q=80&auto=format&fit=crop" alt="Donación" loading="lazy">
-        <div class="gal-caption">
-          <p>Fondos recaudados con total transparencia</p>
-          <span>L.I.R.I.O.S. · Transparencia</span>
+          <p>El equipo de cuidadores junto a los beneficiarios</p>
+          <span>L.I.R.I.O.S. · Centro</span>
         </div>
       </div>
     </div>
@@ -1510,31 +1472,32 @@ footer{background:var(--ink);padding:3.5rem max(5vw,1.8rem) 2.5rem}
       <p class="f-label">¿Cómo quieres participar?</p>
       <div class="tipo-grid">
         <div class="tipo-opt">
-          <input type="checkbox" id="t-arte" name="tipo" value="arte">
+          <input type="radio" id="t-arte" name="tipo" value="arte">
           <label for="t-arte">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><circle cx="11" cy="11" r="2"/></svg>
             Donar una obra
           </label>
         </div>
         <div class="tipo-opt">
-          <input type="checkbox" id="t-vol" name="tipo" value="voluntario">
+          <input type="radio" id="t-vol" name="tipo" value="voluntario">
           <label for="t-vol">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
             Voluntario
           </label>
         </div>
         <div class="tipo-opt">
-          <input type="checkbox" id="t-don" name="tipo" value="donacion">
+          <input type="radio" id="t-don" name="tipo" value="donacion">
           <label for="t-don">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
             Donar dinero
           </label>
         </div>
       </div>
+      <p class="tipo-err" id="tipoErr" role="alert">Selecciona al menos una forma de participar.</p>
       <div class="f-row">
         <div class="f-group" id="g-nombre">
           <label for="nombre">Nombre completo</label>
-          <input type="text" id="nombre" placeholder="Tu nombre" autocomplete="name">
+          <input type="text" id="nombre" placeholder="Tu nombre" autocomplete="name" maxlength="100">
           <span class="f-err">Por favor, ingresa tu nombre.</span>
         </div>
         <div class="f-group">
@@ -1545,22 +1508,24 @@ footer{background:var(--ink);padding:3.5rem max(5vw,1.8rem) 2.5rem}
       <div class="f-row">
         <div class="f-group" id="g-email">
           <label for="email">Correo electrónico</label>
-          <input type="email" id="email" placeholder="tu@correo.com" autocomplete="email">
+          <input type="email" id="email" placeholder="tu@correo.com" autocomplete="email" maxlength="150">
           <span class="f-err">Ingresa un correo válido.</span>
         </div>
-        <div class="f-group">
+        <div class="f-group" id="g-tel">
           <label for="tel">WhatsApp / Teléfono</label>
-          <input type="tel" id="tel" placeholder="+51 999 000 000" autocomplete="tel">
+          <input type="tel" id="tel" placeholder="+51 999 000 000" autocomplete="tel" maxlength="20">
+          <span class="f-err" role="alert">Ingresa un número válido (ej: +51 999 000 000).</span>
         </div>
       </div>
       <div class="f-group">
         <label for="msg">¿Cómo quieres ayudar? (opcional)</label>
-        <textarea id="msg" placeholder="Cuéntanos un poco más sobre cómo te gustaría participar..."></textarea>
+        <textarea id="msg" maxlength="1000" placeholder="Cuéntanos un poco más sobre cómo te gustaría participar..."></textarea>
       </div>
-      <button class="submit-btn" type="button" onclick="handleSubmit()">
+      <button class="submit-btn" id="submitBtn" type="button">
         Enviar mi participación
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
       </button>
+      <p id="formSendErr" style="display:none;margin-top:.8rem;font-size:.75rem;color:#f87171;font-family:'DM Mono',monospace;letter-spacing:.04em" role="alert"></p>
     </div>
     <div class="form-success" id="formSuccess">
       <div class="s-icon">
@@ -1581,7 +1546,7 @@ footer{background:var(--ink);padding:3.5rem max(5vw,1.8rem) 2.5rem}
       <h2 class="trans-text">Construimos desde la verdad</h2>
       <p>Queremos construir este proyecto desde la empatía, el arte y la transparencia. Cada obra recibida y cada fondo recaudado serán compartidos de manera clara y pública.</p>
       <p>Mostramos el impacto real de cada aporte porque la confianza no se declara, se demuestra con hechos.</p>
-      <a href="https://www.instagram.com/liriosylazos.proyecto/" target="_blank" rel="noopener" class="trans-link">
+      <a href="https://www.instagram.com/liriosylazos.proyecto/" target="_blank" rel="noopener noreferrer" class="trans-link">
         Seguir en Instagram
         <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
       </a>
@@ -1602,37 +1567,37 @@ footer{background:var(--ink);padding:3.5rem max(5vw,1.8rem) 2.5rem}
       <p>Preguntas frecuentes sobre el proyecto, la donación de obras y la participación como voluntario.</p>
     </div>
     <div class="faq-item rv">
-      <div class="faq-q" onclick="toggleFaq(this)">
+      <div class="faq-q" role="button" tabindex="0">
         ¿Cómo puedo donar una obra?
-        <span class="faq-ico">+</span>
+        <span class="faq-ico" aria-hidden="true">+</span>
       </div>
       <div class="faq-ans">Completa el formulario seleccionando "Donar una obra". El equipo se pondrá en contacto para coordinar los detalles de envío, valoración y exhibición de la pieza.</div>
     </div>
     <div class="faq-item rv d1">
-      <div class="faq-q" onclick="toggleFaq(this)">
+      <div class="faq-q" role="button" tabindex="0">
         ¿Dónde van los fondos recaudados?
-        <span class="faq-ico">+</span>
+        <span class="faq-ico" aria-hidden="true">+</span>
       </div>
       <div class="faq-ans">El 100% de los fondos se destina a familias vulnerables de Cajamarca: alimentos, abrigo, acompañamiento y ayuda médica. Cada gasto es publicado con transparencia en nuestras redes.</div>
     </div>
     <div class="faq-item rv d2">
-      <div class="faq-q" onclick="toggleFaq(this)">
+      <div class="faq-q" role="button" tabindex="0">
         ¿Cómo funciona el voluntariado?
-        <span class="faq-ico">+</span>
+        <span class="faq-ico" aria-hidden="true">+</span>
       </div>
       <div class="faq-ans">Los voluntarios pueden apoyar de distintas formas: visitas a la comunidad, difusión del proyecto, apoyo logístico y acompañamiento a personas beneficiadas. Coordinamos directamente según tu disponibilidad.</div>
     </div>
     <div class="faq-item rv d3">
-      <div class="faq-q" onclick="toggleFaq(this)">
+      <div class="faq-q" role="button" tabindex="0">
         ¿Cómo hacer una donación económica?
-        <span class="faq-ico">+</span>
+        <span class="faq-ico" aria-hidden="true">+</span>
       </div>
       <div class="faq-ans">Selecciona "Donación de dinero" en el formulario y el equipo te enviará los datos de cuenta. Publicamos el registro de todas las donaciones y cómo son utilizadas.</div>
     </div>
     <div class="faq-item rv d4">
-      <div class="faq-q" onclick="toggleFaq(this)">
+      <div class="faq-q" role="button" tabindex="0">
         ¿Puedo participar si vivo fuera de Cajamarca?
-        <span class="faq-ico">+</span>
+        <span class="faq-ico" aria-hidden="true">+</span>
       </div>
       <div class="faq-ans">Sí, aceptamos donaciones de obras y aportes económicos desde cualquier parte de Perú y el mundo. La difusión también es una forma valiosa de participar desde la distancia.</div>
     </div>
@@ -1649,7 +1614,7 @@ footer{background:var(--ink);padding:3.5rem max(5vw,1.8rem) 2.5rem}
         para la Inclusión y Oportunidad Social<br>
         Arte que conecta y transforma
       </div>
-      <a href="https://www.instagram.com/liriosylazos.proyecto/" target="_blank" rel="noopener" class="foot-ig">
+      <a href="https://www.instagram.com/liriosylazos.proyecto/" target="_blank" rel="noopener noreferrer" class="foot-ig">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
         @liriosylazos.proyecto
       </a>
@@ -1668,7 +1633,7 @@ footer{background:var(--ink);padding:3.5rem max(5vw,1.8rem) 2.5rem}
     <div class="foot-links-col">
       <div class="foot-col-title">Contacto</div>
       <ul class="foot-links">
-        <li><a href="https://www.instagram.com/liriosylazos.proyecto/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.instagram.com/liriosylazos.proyecto/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
         <li><a href="#formulario">Formulario</a></li>
       </ul>
     </div>
@@ -1683,42 +1648,43 @@ footer{background:var(--ink);padding:3.5rem max(5vw,1.8rem) 2.5rem}
 // ══════════════════════════════════════════════
 // SCROLL REVEAL
 // ══════════════════════════════════════════════
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)} });
-},{threshold:.08});
-document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); revealObs.unobserve(e.target); }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.rv').forEach(el => revealObs.observe(el));
 
 // ══════════════════════════════════════════════
-// HERO PARALLAX (only when has-image)
+// HERO PARALLAX
 // ══════════════════════════════════════════════
-const hero = document.querySelector('.hero');
-const heroBg = document.querySelector('.hero-bg-fallback');
-let ticking = false;
-if(hero && hero.classList.contains('has-image')){
-  window.addEventListener('scroll',()=>{
-    if(!ticking){
-      requestAnimationFrame(()=>{
-        const y = window.scrollY;
-        if(y < window.innerHeight * 1.5){
-          heroBg.style.backgroundPositionY = `calc(28% + ${y * 0.15}px)`;
-        }
-        ticking = false;
-      });
-      ticking = true;
-    }
-  },{passive:true});
-}
-
+(function(){
+  const hero  = document.querySelector('.hero');
+  const heroBg = document.querySelector('.hero-bg-fallback');
+  let ticking = false;
+  if (hero && hero.classList.contains('has-image')) {
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const y = window.scrollY;
+          if (y < window.innerHeight * 1.5) heroBg.style.backgroundPositionY = `calc(28% + ${y * 0.15}px)`;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+})();
 
 // ══════════════════════════════════════════════
-// CARD TILT — only bento bc cards
+// CARD TILT — bento cards
 // ══════════════════════════════════════════════
 document.querySelectorAll('.bc').forEach(card => {
   card.addEventListener('mousemove', e => {
     const r = card.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width  - 0.5;
-    const y = (e.clientY - r.top)  / r.height - 0.5;
-    card.style.transform = `translateY(-3px) rotateX(${-y*4}deg) rotateY(${x*4}deg)`;
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
+    card.style.transform = `translateY(-3px) rotateX(${-y * 4}deg) rotateY(${x * 4}deg)`;
     card.style.transformOrigin = 'center center';
     card.style.transition = 'transform .1s';
   });
@@ -1729,126 +1695,183 @@ document.querySelectorAll('.bc').forEach(card => {
 });
 
 // ══════════════════════════════════════════════
-// GALLERY CAROUSEL
+// GALERÍA — carrusel central infinito con fade
 // ══════════════════════════════════════════════
 (function(){
-  const wrap  = document.getElementById('galWrap');
-  const track = document.getElementById('galTrack');
-  const dotsC = document.getElementById('galDots');
-  const btnP  = document.getElementById('galPrev');
-  const btnN  = document.getElementById('galNext');
-  if(!track) return;
+  const viewport = document.getElementById('galViewport');
+  const dotsC    = document.getElementById('galDots');
+  const btnP     = document.getElementById('galPrev');
+  const btnN     = document.getElementById('galNext');
+  if (!viewport) return;
 
-  const slides = track.querySelectorAll('.gal-slide');
-  const GAP    = 16;
+  const items  = [...viewport.querySelectorAll('.gal-item')];
+  const total  = items.length;
   let current  = 0;
-  let startX   = 0;
-  let isDrag   = false;
-  let dragDelta = 0;
+  let isAnim   = false;
 
-  // Build dots
-  slides.forEach((_,i)=>{
+  // Crear dots
+  items.forEach((_, i) => {
     const d = document.createElement('button');
-    d.className = 'gal-dot' + (i===0?' active':'');
-    d.setAttribute('aria-label', `Foto ${i+1}`);
-    d.onclick = ()=> goTo(i);
-    dotsC.appendChild(d);
+    d.className = 'gal-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', 'Imagen ' + (i + 1));
+    d.onclick = () => { goTo(i); resetAuto(); };
+    dotsC && dotsC.appendChild(d);
   });
 
-  function slideWidth(i){
-    return slides[i].getBoundingClientRect().width + GAP;
-  }
+  function goTo(next) {
+    if (isAnim || next === current) return;
+    isAnim = true;
+    const prev = current;
+    current = ((next % total) + total) % total;
 
-  function getOffset(targetIdx){
-    let offset = parseFloat(getComputedStyle(track).paddingLeft)||0;
-    // use the computed padding from CSS (max(5vw,1.8rem))
-    const pad = Math.max(window.innerWidth*0.05, 28.8);
-    offset = pad;
-    for(let i=0;i<targetIdx;i++){
-      offset += (slides[i].offsetWidth || 0) + GAP;
+    items[prev].classList.remove('active');
+    items[prev].classList.add('prev');
+    items[current].classList.add('active');
+
+    setTimeout(() => {
+      items[prev].classList.remove('prev');
+      isAnim = false;
+    }, 680);
+
+    // Update dots
+    if (dotsC) {
+      dotsC.querySelectorAll('.gal-dot').forEach((d, i) => d.classList.toggle('active', i === current));
     }
-    return offset;
   }
 
-  function goTo(idx){
-    idx = Math.max(0, Math.min(idx, slides.length-1));
-    current = idx;
-    const offset = getOffset(idx);
-    track.style.transform = `translateX(-${offset}px)`;
-    dotsC.querySelectorAll('.gal-dot').forEach((d,i)=>{
-      d.classList.toggle('active', i===current);
-    });
+  // Auto-avance infinito
+  let autoTimer = setInterval(() => goTo(current + 1), 4500);
+  function resetAuto() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(() => goTo(current + 1), 4500);
   }
 
-  // Auto-advance
-  let autoTimer = setInterval(()=> goTo((current+1) % slides.length), 4200);
-  function resetAuto(){ clearInterval(autoTimer); autoTimer = setInterval(()=> goTo((current+1)%slides.length),4200); }
+  // Botones del header
+  if (btnP) btnP.onclick = () => { goTo(current - 1); resetAuto(); };
+  if (btnN) btnN.onclick = () => { goTo(current + 1); resetAuto(); };
 
-  btnN.onclick = ()=>{ goTo(current+1); resetAuto(); };
-  btnP.onclick = ()=>{ goTo(current-1); resetAuto(); };
-
-  // Drag / swipe
-  wrap.addEventListener('mousedown', e=>{ isDrag=true; startX=e.clientX; track.style.transition='none'; });
-  wrap.addEventListener('mousemove', e=>{ if(!isDrag) return; dragDelta=e.clientX-startX; });
-  wrap.addEventListener('mouseup',   e=>{
-    if(!isDrag) return; isDrag=false;
-    track.style.transition='';
-    if(Math.abs(dragDelta)>50){ dragDelta<0? goTo(current+1): goTo(current-1); resetAuto(); }
-    else goTo(current);
-    dragDelta=0;
+  // Swipe touch
+  let touchStartX = 0;
+  viewport.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  viewport.addEventListener('touchend', e => {
+    const diff = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(diff) > 40) { diff < 0 ? goTo(current + 1) : goTo(current - 1); resetAuto(); }
   });
-  wrap.addEventListener('mouseleave',()=>{ if(isDrag){ isDrag=false; track.style.transition=''; goTo(current); dragDelta=0; }});
-
-  // Touch
-  wrap.addEventListener('touchstart', e=>{ startX=e.touches[0].clientX; track.style.transition='none'; },{passive:true});
-  wrap.addEventListener('touchend',   e=>{
-    track.style.transition='';
-    const diff = e.changedTouches[0].clientX - startX;
-    if(Math.abs(diff)>40){ diff<0? goTo(current+1): goTo(current-1); resetAuto(); }
-    else goTo(current);
-  });
-
-  // Init
-  setTimeout(()=> goTo(0), 100);
-  window.addEventListener('resize', ()=> goTo(current));
 })();
 
 // ══════════════════════════════════════════════
-// FAQ
+// FAQ — div role=button accesible
 // ══════════════════════════════════════════════
-function toggleFaq(el){
-  const item = el.parentElement;
-  const open = item.classList.contains('open');
-  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-  if(!open) item.classList.add('open');
+function toggleFaqItem(item) {
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => {
+    i.classList.remove('open');
+    i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+  });
+  if (!isOpen) {
+    item.classList.add('open');
+    item.querySelector('.faq-q').setAttribute('aria-expanded', 'true');
+  }
 }
 
+document.querySelectorAll('.faq-q').forEach(el => {
+  el.setAttribute('aria-expanded', 'false');
+  el.addEventListener('click', () => toggleFaqItem(el.closest('.faq-item')));
+  el.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleFaqItem(el.closest('.faq-item')); }
+  });
+});
+
 // ══════════════════════════════════════════════
-// FORM VALIDATION
+// FORMULARIO — validación
 // ══════════════════════════════════════════════
-function setErr(id, show){
+function setErr(id, show) {
   const g = document.getElementById('g-' + id);
-  if(!g) return;
-  show ? g.classList.add('has-err') : g.classList.remove('has-err');
+  if (g) show ? g.classList.add('has-err') : g.classList.remove('has-err');
 }
-function handleSubmit(){
-  const nombre = document.getElementById('nombre').value.trim();
-  const email  = document.getElementById('email').value.trim();
-  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  setErr('nombre',!nombre);
-  setErr('email',!email||!emailOk);
-  if(!nombre||!email||!emailOk) return;
-  const c = document.getElementById('formContent');
-  c.style.transition = 'opacity .3s,transform .3s';
-  c.style.opacity='0'; c.style.transform='translateY(-10px)';
-  setTimeout(()=>{
-    c.style.display='none';
-    document.getElementById('formSuccess').classList.add('on');
-  },300);
+function validateTel(tel) {
+  if (!tel) return true;
+  return /^(\+51\s?)?[0-9\s\-]{7,15}$/.test(tel);
 }
-['nombre','email'].forEach(id=>{
+
+// Reemplazá TU_ID_FORMSPREE con el código de tu endpoint en formspree.io/f/XXXXXXXX
+const FORMSPREE_URL = 'https://formspree.io/f/xojzewpk';
+
+document.getElementById('submitBtn').addEventListener('click', async function() {
+  const nombre  = document.getElementById('nombre').value.trim();
+  const ciudad  = document.getElementById('ciudad').value.trim();
+  const email   = document.getElementById('email').value.trim();
+  const tel     = document.getElementById('tel').value.trim();
+  const msg     = document.getElementById('msg').value.trim();
+  const tipoSel = document.querySelector('input[name="tipo"]:checked');
+  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+  const telOk   = validateTel(tel);
+
+  const tipoErr = document.getElementById('tipoErr');
+  !tipoSel ? tipoErr.classList.add('show') : tipoErr.classList.remove('show');
+  setErr('nombre', !nombre);
+  setErr('email', !email || !emailOk);
+  if (document.getElementById('g-tel')) setErr('tel', tel.length > 0 && !telOk);
+
+  if (!nombre || !email || !emailOk || !tipoSel || (tel.length > 0 && !telOk)) return;
+
+  const btn = this;
+  btn.disabled = true;
+  btn.textContent = 'Enviando\u2026';
+
+  try {
+    const payload = new URLSearchParams();
+    payload.append('Nombre',        nombre);
+    payload.append('Ciudad',        ciudad || '\u2014');
+    payload.append('Email',         email);
+    payload.append('Telefono',      tel    || '\u2014');
+    payload.append('Participacion', tipoSel.value);
+    payload.append('Mensaje',       msg    || '\u2014');
+
+    const response = await fetch(FORMSPREE_URL, {
+      method: 'POST',
+      headers: {
+        'Accept':       'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: payload.toString()
+    });
+
+    if (!response.ok) {
+      const data = await response.json().catch(() => ({}));
+      throw new Error(data.error || 'Error ' + response.status);
+    }
+
+    const c = document.getElementById('formContent');
+    c.style.transition = 'opacity .3s, transform .3s';
+    c.style.opacity = '0';
+    c.style.transform = 'translateY(-10px)';
+    setTimeout(() => {
+      c.style.display = 'none';
+      document.getElementById('formSuccess').classList.add('on');
+    }, 300);
+
+  } catch (err) {
+    btn.disabled = false;
+    btn.innerHTML = 'Enviar mi participaci\u00f3n <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>';
+    const errBox = document.getElementById('formSendErr');
+    if (errBox) {
+      errBox.textContent = 'Hubo un problema al enviar. Intent\u00e1 de nuevo o escr\u00edbenos por Instagram.';
+      errBox.style.display = 'block';
+      setTimeout(() => { errBox.style.display = 'none'; }, 6000);
+    }
+  }
+});
+
+['nombre','email','tel'].forEach(id => {
   const el = document.getElementById(id);
-  if(el) el.addEventListener('input',()=>setErr(id,false));
+  if (el) el.addEventListener('input', () => setErr(id, false));
+});
+
+document.querySelectorAll('input[name="tipo"]').forEach(r => {
+  r.addEventListener('change', () => {
+    document.getElementById('tipoErr').classList.remove('show');
+  });
 });
 </script>
 </body>
