@@ -50,7 +50,7 @@
   fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;0,6..72,400;1,6..72,200;1,6..72,300;1,6..72,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"><style>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,300;1,300&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet"><style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px}
 
@@ -233,19 +233,10 @@ nav{
 
 /* Background layer — visible WHEN image is set */
 /* To use: add class .has-image to <section class="hero"> and set --hero-img URL */
-.hero-image{
-  position:absolute;
-  inset:0;
-  z-index:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center 28%;
-  filter:saturate(.78) brightness(.5);
-}
-
 .hero.has-image .hero-bg-fallback{
-  display:none;
+  background-image:url('assets/img/hero/patio-colonial.webp');
+  background-size:cover;background-position:center 28%;
+  filter:saturate(.78) brightness(.5);
 }
 .hero.has-image .hero-bg-fallback::before,.hero.has-image .hero-bg-fallback::after{display:none}
 
@@ -1246,16 +1237,9 @@ footer{background:var(--ink);padding:3.5rem max(5vw,1.8rem) 2.5rem}
      • Con imagen:  <section class="hero has-image"> y opcionalmente
                     style="--hero-img:url('tu-foto.jpg')" para cambiar la foto
 -->
-<section class="hero has-image" id="inicio">
-
-  <img
-    class="hero-image"
-    src="assets/img/hero/patio-colonial.webp"
-    alt=""
-    fetchpriority="high"
-    loading="eager"
-    decoding="async">
-
+<section class="hero has-image" id="inicio" style="--hero-img:url('assets/img/hero/patio-colonial.jpg')">
+  <!-- Fondo: fallback cálido sin imagen / foto cuando .has-image -->
+  <div class="hero-bg-fallback" aria-hidden="true"></div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <!-- Floating particles — visible in fallback mode -->
   <div class="hero-particles" aria-hidden="true">
