@@ -233,10 +233,19 @@ nav{
 
 /* Background layer — visible WHEN image is set */
 /* To use: add class .has-image to <section class="hero"> and set --hero-img URL */
-.hero.has-image .hero-bg-fallback{
-  background-image:url('assets/img/hero/patio-colonial.webp');
-  background-size:cover;background-position:center 28%;
+.hero-image{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 28%;
   filter:saturate(.78) brightness(.5);
+}
+
+.hero.has-image .hero-bg-fallback{
+  display:none;
 }
 .hero.has-image .hero-bg-fallback::before,.hero.has-image .hero-bg-fallback::after{display:none}
 
@@ -387,7 +396,7 @@ nav{
   will-change:transform;
 }
 .marquee-track span{
-  font-family:'Plus Jakarta Sans',sans-serif;;font-size:.6rem;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:.6rem;
   letter-spacing:.16em;text-transform:uppercase;
   color:var(--gold-lt);
   opacity:1;
@@ -401,7 +410,7 @@ nav{
 .section{padding:7rem max(5vw,1.8rem)}
 .wrap{max-width:1080px;margin:0 auto}
 .eyebrow{
-  font-family:'Plus Jakarta Sans',sans-serif;;
+  font-family:'Plus Jakarta Sans',sans-serif;
   font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;
   color:var(--gold);margin-bottom:1.4rem;
   display:flex;align-items:center;gap:.55rem;
@@ -735,7 +744,7 @@ nav{
 }
 .step:last-child{border-bottom:none}
 .step-n{
-  font-family:'Plus Jakarta Sans',sans-serif;;font-size:.58rem;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:.58rem;
   letter-spacing:.08em;color:var(--faint);padding-top:.22rem;font-weight:300;
 }
 .step h4{font-size:.88rem;font-weight:600;margin-bottom:.28rem;letter-spacing:-.008em;color:var(--ink)}
@@ -786,7 +795,7 @@ nav{
 .tc:nth-child(2) blockquote{color:rgba(255,255,255,.75)}
 .tc-name{
   font-size:.7rem;font-weight:500;color:var(--muted);
-  font-family:'Plus Jakarta Sans',sans-serif;;letter-spacing:.06em;text-transform:uppercase;
+  font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:.06em;text-transform:uppercase;
 }
 .tc:nth-child(2) .tc-name{color:rgba(255,255,255,.28)}
 
@@ -827,7 +836,7 @@ nav{
 .form-head p{margin-top:.8rem;font-size:.88rem;color:rgba(255,255,255,.38);line-height:1.72;font-weight:300}
 /* TIPO selector */
 .f-label{
-  font-family:'Plus Jakarta Sans',sans-serif;;font-size:.6rem;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:.6rem;
   letter-spacing:.16em;text-transform:uppercase;
   color:rgba(255,255,255,.28);margin-bottom:.7rem;
 }
@@ -853,7 +862,7 @@ nav{
 .f-row{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:.6rem}
 .f-group{display:flex;flex-direction:column;gap:.28rem;margin-bottom:.6rem}
 .f-group label{
-  font-family:'Plus Jakarta Sans',sans-serif;;font-size:.6rem;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:.6rem;
   letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.32);
 }
 .f-group input,.f-group textarea{
@@ -872,7 +881,7 @@ nav{
 .f-group textarea{resize:vertical;min-height:88px}
 .f-err{
   font-size:.67rem;color:#f87171;display:none;margin-top:.1rem;
-  font-family:'Plus Jakarta Sans',sans-serif;;letter-spacing:.06em;
+  font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:.06em;
 }
 .has-err input,.has-err textarea{border-color:#f87171;box-shadow:0 0 0 3px rgba(248,113,113,.12)}
 .has-err .f-err{display:block}
@@ -954,7 +963,7 @@ nav{
 }
 .trans-rule{width:22px;height:1px;background:rgba(200,150,14,.35);margin:1.5rem 0 .9rem}
 .trans-attr{
-  font-family:'Plus Jakarta Sans',sans-serif;;font-size:.58rem;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:.58rem;
   letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.2);
 }
 
@@ -1029,12 +1038,12 @@ footer{background:var(--ink);padding:3.5rem max(5vw,1.8rem) 2.5rem}
   color:rgba(255,255,255,.75);letter-spacing:-.01em;
 }
 .foot-brand-sub{
-  font-family:'Plus Jakarta Sans',sans-serif;;font-size:.55rem;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:.55rem;
   letter-spacing:.1em;text-transform:uppercase;
   color:rgba(255,255,255,.2);margin-top:.10rem;line-height:2.2;
 }
 .foot-links-col .foot-col-title{
-  font-family:'Plus Jakarta Sans',sans-serif;;font-size:.57rem;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:.57rem;
   letter-spacing:.14em;text-transform:uppercase;
   color:rgba(255,255,255,.2);margin-bottom:1rem;
 }
@@ -1056,7 +1065,7 @@ footer{background:var(--ink);padding:3.5rem max(5vw,1.8rem) 2.5rem}
   max-width:1080px;margin:1.8rem auto 0;
   display:flex;justify-content:space-between;
   font-size:.64rem;color:rgba(255,255,255,.15);
-  font-family:'Plus Jakarta Sans',sans-serif;;letter-spacing:.06em;
+  font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:.06em;
 }
 
 /* ══════════════════════════════════════════════
@@ -1133,7 +1142,7 @@ footer{background:var(--ink);padding:3.5rem max(5vw,1.8rem) 2.5rem}
   font-weight:300;
 }
 .gal-caption span{
-  font-family:'Plus Jakarta Sans',sans-serif;;font-size:.58rem;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:.58rem;
   letter-spacing:.1em;text-transform:uppercase;
   color:rgba(255,255,255,.38);margin-top:.35rem;display:block;
 }
@@ -1169,7 +1178,7 @@ footer{background:var(--ink);padding:3.5rem max(5vw,1.8rem) 2.5rem}
 .rv{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .rv.in{opacity:1;transform:none}
 .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
-.tipo-err{font-size:.67rem;color:#f87171;display:none;margin-bottom:1rem;font-family:'Plus Jakarta Sans',sans-serif;;letter-spacing:.06em}
+.tipo-err{font-size:.67rem;color:#f87171;display:none;margin-bottom:1rem;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:.06em}
 .tipo-err.show{display:block}
 
 /* ══════════════════════════════════════════════
@@ -1237,9 +1246,16 @@ footer{background:var(--ink);padding:3.5rem max(5vw,1.8rem) 2.5rem}
      • Con imagen:  <section class="hero has-image"> y opcionalmente
                     style="--hero-img:url('tu-foto.jpg')" para cambiar la foto
 -->
-<section class="hero has-image" id="inicio" style="--hero-img:url('assets/img/hero/patio-colonial.jpg')">
-  <!-- Fondo: fallback cálido sin imagen / foto cuando .has-image -->
-  <div class="hero-bg-fallback" aria-hidden="true"></div>
+<section class="hero has-image" id="inicio">
+
+  <img
+    class="hero-image"
+    src="assets/img/hero/patio-colonial.webp"
+    alt=""
+    fetchpriority="high"
+    loading="eager"
+    decoding="async">
+
   <div class="hero-overlay" aria-hidden="true"></div>
   <!-- Floating particles — visible in fallback mode -->
   <div class="hero-particles" aria-hidden="true">
@@ -1634,7 +1650,7 @@ footer{background:var(--ink);padding:3.5rem max(5vw,1.8rem) 2.5rem}
         Enviar mi participación
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
       </button>
-      <p id="formSendErr" style="display:none;margin-top:.8rem;font-size:.75rem;color:#f87171;font-family:'Plus Jakarta Sans',sans-serif;;letter-spacing:.04em" role="alert"></p>
+      <p id="formSendErr" style="display:none;margin-top:.8rem;font-size:.75rem;color:#f87171;font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:.04em" role="alert"></p>
     </div>
     <div class="form-success" id="formSuccess">
       <div class="s-icon">
